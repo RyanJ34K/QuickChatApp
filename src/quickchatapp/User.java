@@ -1,10 +1,7 @@
 //Ryan jeffries
+//Created User Class
 package quickchatapp;
 
-/**
- *
- * @author ryanj
- */
 public class User {
 
     String firstName;
