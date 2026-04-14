@@ -1,4 +1,5 @@
 //Ryan Jeffries
+//Created Login Class
 package quickchatapp;
 
 import java.util.regex.Pattern;
