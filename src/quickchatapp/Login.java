@@ -84,7 +84,7 @@ public class Login
         return registeredUser.username.equals(username) && registeredUser.password.equals(password);
     }
 
-    // 6. Return Login Message
+    //Return Login Message
     public String returnLoginStatus(boolean success) {
 
     if (success) {
