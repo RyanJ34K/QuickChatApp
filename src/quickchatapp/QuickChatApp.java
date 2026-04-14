@@ -1,4 +1,5 @@
 //Ryan Jeffries
+//Programming POE Assignment
 package quickchatapp;
 
 import java.util.Scanner;
@@ -62,13 +63,13 @@ public class QuickChatApp {
             }
         }
 
-        // ---------------- CELL NUMBER ----------------
+        // ----------------- CELL NUMBER -----------------
         while (true) {
             System.out.println("\nEnter SA cell number:");
             System.out.println("• Do NOT include 0");
             System.out.println("• Example: 826118188");
 
-            System.out.print("Enter number: ");
+            System.out.print("Enter cell number: ");
             String inputCell = input.nextLine();
 
             // Auto add +27
@@ -87,7 +88,7 @@ public class QuickChatApp {
         String registerMessage = login.registerUser(firstName, lastName, username, password, cell);
         System.out.println(registerMessage);
 
-        System.out.println("\nYou are now registered! Please login.");
+        System.out.println("\nYou are now registered. Please login.");
 
         // ---------------- LOGIN ----------------
         boolean loggedIn = false;
