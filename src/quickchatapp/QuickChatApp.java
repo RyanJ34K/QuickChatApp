@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class QuickChatApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
 
         Scanner input = new Scanner(System.in);
         Login login = new Login();
 
-        System.out.println("=== Welcome to QuickChat ===");
+        System.out.println("*=== Welcome to QuickChat ===*");
 
         String firstName;
         String lastName;
@@ -28,24 +29,28 @@ public class QuickChatApp {
         lastName = input.nextLine();
 
         // ---------------- USERNAME ----------------
-        while (true) {
+        while (true) 
+        {
             System.out.println("\nCreate a username:");
-            System.out.println("• Must contain '_' ");
+            System.out.println("• Must contain '_' "); //Copy and pasted bullet points
             System.out.println("• Must be no more than 5 characters");
 
             System.out.print("Enter username: ");
             username = input.nextLine();
 
-            if (login.checkUserName(username)) {
+            if (login.checkUserName(username)) 
+            {
                 System.out.println("Username successfully captured.");
                 break;
-            } else {
+            } else 
+            {
                 System.out.println("Username is not correctly formatted. Try again.");
             }
         }
 
         // ---------------- PASSWORD ----------------
-        while (true) {
+        while (true) 
+        {
             System.out.println("\nCreate a password:");
             System.out.println("• At least 8 characters");
             System.out.println("• Must contain a capital letter");
@@ -55,16 +60,19 @@ public class QuickChatApp {
             System.out.print("Enter password: ");
             password = input.nextLine();
 
-            if (login.checkPasswordComplexity(password)) {
+            if (login.checkPasswordComplexity(password)) 
+            {
                 System.out.println("Password successfully captured.");
                 break;
-            } else {
+            } else 
+            {
                 System.out.println("Password is not correctly formatted. Try again.");
             }
         }
 
         // ----------------- CELL NUMBER -----------------
-        while (true) {
+        while (true) 
+        {
             System.out.println("\nEnter SA cell number:");
             System.out.println("• Do NOT include 0");
             System.out.println("• Example: 826118188");
@@ -75,10 +83,12 @@ public class QuickChatApp {
             // Auto add +27
             cell = "+27" + inputCell;
 
-            if (login.checkCellPhoneNumber(cell)) {
+            if (login.checkCellPhoneNumber(cell)) 
+            {
                 System.out.println("Cell phone number successfully added.");
                 break;
-            } else {
+            } else 
+            {
                 System.out.println("Invalid number. Try again.");
             }
         }
@@ -93,7 +103,8 @@ public class QuickChatApp {
         // ---------------- LOGIN ----------------
         boolean loggedIn = false;
 
-        while (!loggedIn) {
+        while (!loggedIn) 
+        {
             System.out.println("\n--- Login ---");
 
             System.out.print("Enter username: ");
