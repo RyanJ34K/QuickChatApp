@@ -207,7 +207,9 @@ public class QuickChatApp {
                                 case 2:
 
                                     System.out.println("\nMessage successfully stored.");
-
+                                    
+                                    // Save message to JSON file
+                                    MessageStorage.saveMessage(message);
                                     // Store message
                                     sentMessages.add(message);
 
