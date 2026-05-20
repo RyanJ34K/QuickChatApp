@@ -3,6 +3,7 @@
 package quickchatapp;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Message {
 
@@ -76,5 +77,15 @@ public class Message {
         System.out.println("Message Hash: " + messageHash);
         System.out.println("Recipient: " + recipient);
         System.out.println("Message: " + message);
+    }
+    // Return message details as a String
+
+    public String getMessageDetails() {
+
+        return "Message ID: " + messageID
+                + "\nMessage Hash: " + messageHash
+                + "\nRecipient: " + recipient
+                + "\nMessage: " + message
+                + "\n";
     }
 }

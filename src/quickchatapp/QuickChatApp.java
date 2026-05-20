@@ -3,6 +3,7 @@
 package quickchatapp;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class QuickChatApp {
 
@@ -111,6 +112,8 @@ public class QuickChatApp {
 
         // ---------------- QUICKCHAT MENU ----------------
         Scanner messageInput = new Scanner(System.in);
+        // Store sent messages
+        ArrayList<Message> sentMessages = new ArrayList<>();
 
         int option = 0;
 
@@ -176,6 +179,9 @@ public class QuickChatApp {
 
                             // Display message details
                             message.printMessage();
+
+                            // Add message to ArrayList
+                            sentMessages.add(message);
                         }
 
                         // Ask user what to do next
@@ -201,7 +207,23 @@ public class QuickChatApp {
 
                 case 2:
 
-                    System.out.println("Coming Soon.");
+                    if (sentMessages.isEmpty()) {
+
+                        System.out.println("\nNo messages sent yet.");
+
+                    } else {
+
+                        System.out.println("\nRECENTLY SENT MESSAGES:");
+
+                        for (Message sentMessage : sentMessages) {
+
+                            System.out.println("---------------------");
+
+                            System.out.println(
+                                    sentMessage.getMessageDetails()
+                            );
+                        }
+                    }
 
                     break;
 
