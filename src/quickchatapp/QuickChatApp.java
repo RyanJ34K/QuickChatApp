@@ -117,12 +117,13 @@ public class QuickChatApp {
 
         int option = 0;
 
-        while (option != 3) {
+        while (option != 4) {
 
             System.out.println("\nChoose an option:");
             System.out.println("1) Send Messages");
             System.out.println("2) Show recently sent messages");
-            System.out.println("3) Quit");
+            System.out.println("3) Display total messages sent");
+            System.out.println("4) Quit");
 
             System.out.print("Enter option: ");
             option = messageInput.nextInt();
@@ -141,7 +142,12 @@ public class QuickChatApp {
 
                         // Enter recipient number
                         System.out.print("Enter recipient number: ");
-                        String recipient = messageInput.nextLine();
+                        System.out.println("(Do NOT include 0 or +27)");
+
+                        String inputCell = messageInput.nextLine();
+
+                        // Automatically add +27
+                        String recipient = "+27" + inputCell;
 
                         // Enter message
                         System.out.print("Enter your message: ");
@@ -228,6 +234,14 @@ public class QuickChatApp {
                     break;
 
                 case 3:
+
+                    System.out.println(
+                            "\nTotal messages sent: "
+                            + sentMessages.size()
+                    );
+
+                    break;
+                case 4:
 
                     System.out.println("Goodbye!");
 
