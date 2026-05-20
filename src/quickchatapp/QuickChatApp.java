@@ -108,5 +108,113 @@ public class QuickChatApp {
         }
 
         System.out.println("\nWelcome to QuickChat.");
+
+        // ---------------- QUICKCHAT MENU ----------------
+        Scanner messageInput = new Scanner(System.in);
+
+        int option = 0;
+
+        while (option != 3) {
+
+            System.out.println("\nChoose an option:");
+            System.out.println("1) Send Messages");
+            System.out.println("2) Show recently sent messages");
+            System.out.println("3) Quit");
+
+            System.out.print("Enter option: ");
+            option = messageInput.nextInt();
+            messageInput.nextLine();
+
+            switch (option) {
+
+                case 1:
+
+                    int messageCount = 1;
+                    boolean sendMore = true;
+
+                    while (sendMore) {
+
+                        System.out.println("\nMessage " + messageCount);
+
+                        // Enter recipient number
+                        System.out.print("Enter recipient number: ");
+                        String recipient = messageInput.nextLine();
+
+                        // Enter message
+                        System.out.print("Enter your message: ");
+                        String messageText = messageInput.nextLine();
+
+                        // Create message object
+                        Message message = new Message(
+                                messageCount,
+                                recipient,
+                                messageText
+                        );
+
+                        // Check recipient number
+                        if (!message.checkRecipientCell()) {
+
+                            System.out.println(
+                                    "Cell phone number incorrectly formatted."
+                            );
+
+                        } // Check message length
+                        else if (!message.checkMessageLength()) {
+
+                            int extraCharacters
+                                    = messageText.length() - 250;
+
+                            System.out.println(
+                                    "Message exceeds 250 characters by "
+                                    + extraCharacters
+                                    + ", please reduce size."
+                            );
+
+                        } else {
+
+                            System.out.println("\nMessage successfully created.");
+
+                            // Display message details
+                            message.printMessage();
+                        }
+
+                        // Ask user what to do next
+                        System.out.println("\n1) Send another message");
+                        System.out.println("2) Return to menu");
+
+                        System.out.print("Choose option: ");
+                        int nextChoice = messageInput.nextInt();
+                        messageInput.nextLine();
+
+                        if (nextChoice == 1) {
+
+                            messageCount++;
+
+                        } else {
+
+                            sendMore = false;
+
+                        }
+                    }
+
+                    break;
+
+                case 2:
+
+                    System.out.println("Coming Soon.");
+
+                    break;
+
+                case 3:
+
+                    System.out.println("Goodbye!");
+
+                    break;
+
+                default:
+
+                    System.out.println("Invalid option.");
+            }
+        }
     }
 }
