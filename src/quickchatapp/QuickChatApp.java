@@ -181,13 +181,48 @@ public class QuickChatApp {
 
                         } else {
 
-                            System.out.println("\nMessage successfully created.");
+                            System.out.println("\nChoose what to do with the message:");
+                            System.out.println("1) Send Message");
+                            System.out.println("2) Store Message");
+                            System.out.println("3) Discard Message");
 
-                            // Display message details
-                            message.printMessage();
+                            System.out.print("Enter option: ");
+                            int messageOption = messageInput.nextInt();
+                            messageInput.nextLine();
 
-                            // Add message to ArrayList
-                            sentMessages.add(message);
+                            switch (messageOption) {
+
+                                case 1:
+
+                                    System.out.println("\nMessage successfully sent.");
+
+                                    // Display message details
+                                    message.printMessage();
+
+                                    // Store sent message
+                                    sentMessages.add(message);
+
+                                    break;
+
+                                case 2:
+
+                                    System.out.println("\nMessage successfully stored.");
+
+                                    // Store message
+                                    sentMessages.add(message);
+
+                                    break;
+
+                                case 3:
+
+                                    System.out.println("\nMessage discarded.");
+
+                                    break;
+
+                                default:
+
+                                    System.out.println("\nInvalid option.");
+                            }
                         }
 
                         // Ask user what to do next
