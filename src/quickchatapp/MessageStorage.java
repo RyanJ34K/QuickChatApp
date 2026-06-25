@@ -4,8 +4,33 @@ package quickchatapp;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MessageStorage {
+    // Ryan Jeffries
+// Stores all message collections
+
+    private ArrayList<Message> sentMessages;
+    private ArrayList<Message> storedMessages;
+    private ArrayList<Message> disregardedMessages;
+
+    private ArrayList<String> messageHashes;
+    private ArrayList<String> messageIDs;
+    // Constructor
+
+    public MessageStorage() {
+
+        sentMessages = new ArrayList<>();
+
+        storedMessages = new ArrayList<>();
+
+        disregardedMessages = new ArrayList<>();
+
+        messageHashes = new ArrayList<>();
+
+        messageIDs = new ArrayList<>();
+
+    }
 
     // Save message to JSON file
     public static void saveMessage(Message message) {
