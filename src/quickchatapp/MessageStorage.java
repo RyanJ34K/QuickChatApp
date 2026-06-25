@@ -91,6 +91,154 @@ public class MessageStorage {
         return messageIDs;
 
     }
+// Display sender and recipient of stored messages
+
+    public void displayStoredMessages() {
+
+        if (storedMessages.isEmpty()) {
+
+            System.out.println("\nNo stored messages found.");
+
+        } else {
+
+            System.out.println("\nStored Messages:");
+
+            for (Message message : storedMessages) {
+
+                System.out.println("-------------------------");
+                System.out.println("Sender: You");
+                System.out.println("Recipient: " + message.recipient);
+
+            }
+
+        }
+
+    }
+    // Display the longest stored message
+
+    public void displayLongestStoredMessage() {
+
+        if (storedMessages.isEmpty()) {
+
+            System.out.println("\nNo stored messages found.");
+
+            return;
+
+        }
+
+        Message longestMessage = storedMessages.get(0);
+
+        for (Message message : storedMessages) {
+
+            if (message.message.length() > longestMessage.message.length()) {
+
+                longestMessage = message;
+
+            }
+
+        }
+
+        System.out.println("\nLongest Stored Message:");
+        System.out.println("-------------------------");
+        System.out.println(longestMessage.message);
+
+    }
+
+    // Search for a message using its ID
+    public void searchMessageID(String messageID) {
+
+        boolean found = false;
+
+        for (Message message : storedMessages) {
+
+            if (message.messageID.equals(messageID)) {
+
+                System.out.println("\nMessage Found");
+                System.out.println("-------------------------");
+                System.out.println("Recipient: " + message.recipient);
+                System.out.println("Message: " + message.message);
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+
+            System.out.println("Message ID not found.");
+
+        }
+
+    }
+
+    // Search for messages using recipient number
+    public void searchRecipient(String recipient) {
+
+        boolean found = false;
+
+        for (Message message : storedMessages) {
+
+            if (message.recipient.equals(recipient)) {
+
+                System.out.println("-------------------------");
+                System.out.println("Message ID: " + message.messageID);
+                System.out.println("Message: " + message.message);
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+
+            System.out.println("No messages found.");
+
+        }
+
+    }
+
+// Delete message using hash
+    public void deleteMessage(String hash) {
+
+        for (int i = 0; i < storedMessages.size(); i++) {
+
+            if (storedMessages.get(i).messageHash.equals(hash)) {
+
+                storedMessages.remove(i);
+                messageHashes.remove(i);
+                messageIDs.remove(i);
+
+                System.out.println("Message successfully deleted.");
+
+                return;
+
+            }
+
+        }
+
+        System.out.println("Message hash not found.");
+
+    }
+
+// Display all stored messages
+    public void displayReport() {
+
+        if (storedMessages.isEmpty()) {
+
+            System.out.println("No stored messages.");
+
+            return;
+
+        }
+
+        System.out.println("\nMESSAGE REPORT");
+
+        for (Message message : storedMessages) {
+
+            System.out.println(message.getMessageDetails());
+
+        }
+
+    }
 
     // Save message to JSON file
     public static void saveMessage(Message message) {

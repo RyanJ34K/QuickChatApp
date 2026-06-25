@@ -118,11 +118,11 @@ public class QuickChatApp {
 
         while (option != 4) {
 
-            System.out.println("\nChoose an option:");
             System.out.println("1) Send Messages");
             System.out.println("2) Show recently sent messages");
             System.out.println("3) Display total messages sent");
-            System.out.println("4) Quit");
+            System.out.println("4) Stored Messages");
+            System.out.println("5) Quit");
 
             System.out.print("Enter option: ");
             option = messageInput.nextInt();
