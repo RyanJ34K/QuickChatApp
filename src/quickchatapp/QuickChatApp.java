@@ -116,7 +116,7 @@ public class QuickChatApp {
 
         int option = 0;
 
-        while (option != 4) {
+        while (option != 5) {
 
             System.out.println("1) Send Messages");
             System.out.println("2) Show recently sent messages");
@@ -275,6 +275,87 @@ public class QuickChatApp {
 
                     break;
                 case 4:
+
+                    int storedOption;
+
+                    do {
+
+                        System.out.println("\n===== STORED MESSAGES =====");
+                        System.out.println("1) Display Sender and Recipient");
+                        System.out.println("2) Display Longest Stored Message");
+                        System.out.println("3) Search by Message ID");
+                        System.out.println("4) Search by Recipient");
+                        System.out.println("5) Delete by Message Hash");
+                        System.out.println("6) Display Report");
+                        System.out.println("7) Return");
+
+                        System.out.print("Choose an option: ");
+                        storedOption = messageInput.nextInt();
+                        messageInput.nextLine();
+
+                        switch (storedOption) {
+
+                            case 1:
+
+                                storage.displayStoredMessages();
+
+                                break;
+
+                            case 2:
+
+                                storage.displayLongestStoredMessage();
+
+                                break;
+
+                            case 3:
+
+                                System.out.print("Enter Message ID: ");
+                                String messageID = messageInput.nextLine();
+
+                                storage.searchMessageID(messageID);
+
+                                break;
+
+                            case 4:
+
+                                System.out.print("Enter Recipient (+27...): ");
+                                String recipient = messageInput.nextLine();
+
+                                storage.searchRecipient(recipient);
+
+                                break;
+
+                            case 5:
+
+                                System.out.print("Enter Message Hash: ");
+                                String hash = messageInput.nextLine();
+
+                                storage.deleteMessage(hash);
+
+                                break;
+
+                            case 6:
+
+                                storage.displayReport();
+
+                                break;
+
+                            case 7:
+
+                                System.out.println("Returning to main menu...");
+
+                                break;
+
+                            default:
+
+                                System.out.println("Invalid option.");
+
+                        }
+
+                    } while (storedOption != 7);
+
+                    break;
+                case 5:
 
                     System.out.println("Goodbye!");
 
