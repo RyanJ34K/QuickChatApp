@@ -11,6 +11,7 @@ public class QuickChatApp {
 
         Scanner input = new Scanner(System.in);
         Login login = new Login();
+        MessageStorage storage = new MessageStorage();
 
         System.out.println("*=== Welcome to QuickChat ===*");
 
@@ -112,8 +113,6 @@ public class QuickChatApp {
 
         // ---------------- QUICKCHAT MENU ----------------
         Scanner messageInput = new Scanner(System.in);
-        // Store sent messages
-        ArrayList<Message> sentMessages = new ArrayList<>();
 
         int option = 0;
 
@@ -200,24 +199,23 @@ public class QuickChatApp {
                                     message.printMessage();
 
                                     // Store sent message
-                                    sentMessages.add(message);
-
+                                    storage.addSentMessage(message);
                                     break;
 
                                 case 2:
 
                                     System.out.println("\nMessage successfully stored.");
-                                    
+
                                     // Save message to JSON file
                                     MessageStorage.saveMessage(message);
                                     // Store message
-                                    sentMessages.add(message);
-
+                                    storage.addStoredMessage(message);
                                     break;
 
                                 case 3:
 
                                     System.out.println("\nMessage discarded.");
+                                    storage.addDisregardedMessage(message);
 
                                     break;
 
@@ -250,16 +248,14 @@ public class QuickChatApp {
 
                 case 2:
 
-                    if (sentMessages.isEmpty()) {
-
+                    if (storage.getSentMessages().isEmpty()) {
                         System.out.println("\nNo messages sent yet.");
 
                     } else {
 
                         System.out.println("\nRECENTLY SENT MESSAGES:");
 
-                        for (Message sentMessage : sentMessages) {
-
+                        for (Message sentMessage : storage.getSentMessages()) {
                             System.out.println("---------------------");
 
                             System.out.println(
@@ -274,7 +270,7 @@ public class QuickChatApp {
 
                     System.out.println(
                             "\nTotal messages sent: "
-                            + sentMessages.size()
+                            + storage.getSentMessages().size()
                     );
 
                     break;

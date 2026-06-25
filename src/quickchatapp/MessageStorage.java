@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MessageStorage {
-    // Ryan Jeffries
-// Stores all message collections
 
     private ArrayList<Message> sentMessages;
     private ArrayList<Message> storedMessages;
@@ -29,6 +27,68 @@ public class MessageStorage {
         messageHashes = new ArrayList<>();
 
         messageIDs = new ArrayList<>();
+
+    }
+    // Add a sent message
+
+    public void addSentMessage(Message message) {
+
+        sentMessages.add(message);
+        messageHashes.add(message.messageHash);
+        messageIDs.add(message.messageID);
+
+    }
+
+    // Add a stored message
+    public void addStoredMessage(Message message) {
+
+        storedMessages.add(message);
+        messageHashes.add(message.messageHash);
+        messageIDs.add(message.messageID);
+
+    }
+
+// Add a disregarded message
+    public void addDisregardedMessage(Message message) {
+
+        disregardedMessages.add(message);
+        messageHashes.add(message.messageHash);
+        messageIDs.add(message.messageID);
+
+    }
+
+    // Return all sent messages
+    public ArrayList<Message> getSentMessages() {
+
+        return sentMessages;
+
+    }
+
+// Return all stored messages
+    public ArrayList<Message> getStoredMessages() {
+
+        return storedMessages;
+
+    }
+
+// Return all disregarded messages
+    public ArrayList<Message> getDisregardedMessages() {
+
+        return disregardedMessages;
+
+    }
+
+// Return all message hashes
+    public ArrayList<String> getMessageHashes() {
+
+        return messageHashes;
+
+    }
+
+// Return all message IDs
+    public ArrayList<String> getMessageIDs() {
+
+        return messageIDs;
 
     }
 
